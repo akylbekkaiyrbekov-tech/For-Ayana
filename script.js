@@ -1,20 +1,20 @@
 const questions = [
     {
         text: "Where is Tree?",
-        leftImg: "images/tree-false.jpg",
-        rightImg: "images/tree-true.jpg",
+        leftImg: "images/tree-false.png",
+        rightImg: "images/tree-true.png",
         correct: "right"
     },
     {
         text: "Where is Honey?",
-        leftImg: "images/honey-true.jpg",
-        rightImg: "images/honey-false.jpg",
+        leftImg: "images/honey-true.png",
+        rightImg: "images/honey-false.png",
         correct: "left"
     },
     {
         text: "Where is Moon?",
-        leftImg: "images/moon-1.jpg",
-        rightImg: "images/moon-2.jpg",
+        leftImg: "images/moon-1.png",
+        rightImg: "images/moon-2.png",
         correct: "none" 
     }
 ];
@@ -63,9 +63,9 @@ function updateUI() {
 
 // Слайд-шоу из 3-х фото
 const finalImages = [
-    "images/slide1.jpg",
-    "images/slide2.jpg",
-    "images/slide3.jpg"
+    "images/slide1.png",
+    "images/slide2.png",
+    "images/slide3.png"
 ];
 
 function startSlideshow() {
@@ -87,3 +87,4 @@ function startSlideshow() {
         }
     }, 2500); // Смена фото каждые 2.5 секунды
 }
+
