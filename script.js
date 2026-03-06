@@ -85,7 +85,8 @@ function startSlideshow() {
             clearInterval(interval); // Останавливаем после 3-й фотки
             // Если хочешь зациклить — убери clearInterval и оставь i = (i + 1) % finalImages.length;
         }
-    }, 2500); // Смена фото каждые 2.5 секунды
+    }, 1500); // Смена фото каждые 2.5 секунды
 }
+
 
 
