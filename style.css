@@ -1,78 +1,63 @@
+/* Общие настройки фона и шрифта */
 body {
-    background-color: #fdf6d3;
-    font-family: sans-serif;
+    background-color: #fdf6d3; /* Тот самый кремовый фон */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    padding: 20px;
+    padding: 10px;
     box-sizing: border-box;
+    overflow-x: hidden; /* Чтобы не было горизонтальной прокрутки */
 }
 
+/* Контейнер игры */
 #game-container { 
     width: 100%;
-    max-width: 500px;
+    max-width: 600px;
     text-align: center; 
 }
 
-h1 { font-size: 2rem; margin-bottom: 20px; }
+h1 { 
+    font-size: 1.8rem; 
+    margin-bottom: 30px; 
+    color: #333;
+}
 
-/* Настройка сетки для картинок */
+/* Ряд с картинками — теперь всегда горизонтальный */
 .options { 
     display: flex; 
-    flex-direction: row; /* Изменили на row, чтобы всегда были в ряд */
-    justify-content: center; /* Центрируем их */
-    gap: 10px; /* Уменьшим отступ, чтобы влезло на узкий экран */
+    flex-direction: row; /* Картинки в одну линию */
+    justify-content: center; 
+    gap: 15px; /* Расстояние между ними */
     width: 100%;
 }
 
+/* Карточка с фото */
 .card {
     cursor: pointer;
     background: white;
-    padding: 5px; /* Уменьшили рамку, чтобы сэкономить место */
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    flex: 1; /* Это заставит карточки делиться местом поровну */
-    max-width: 48%; /* Чтобы две карточки точно влезли с учетом отступа */
+    padding: 8px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    flex: 1; /* Растягиваются поровну */
+    max-width: 45%; /* Чтобы точно влезли две в ряд */
+    position: relative; /* Нужно для центровки иконки внутри */
+    transition: transform 0.2s;
+}
+
+.card:active {
+    transform: scale(0.95); /* Эффект нажатия пальцем */
 }
 
 .card img {
     width: 100%; 
     height: auto;
-    border-radius: 5px;
+    border-radius: 8px;
     display: block;
 }
 
+/* Иконки (крестики/галочки) прямо поверх картинок */
 .status-icon {
-    font-size: 30px;
-    height: 40px;
-    line-height: 40px;
-}
-
-/* Слайд-шоу на весь экран */
-.hidden { display: none !important; }
-
-#slideshow-container {
-    position: fixed;
-    top: 0; left: 0; 
-    width: 100vw; height: 100vh;
-    background: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 100;
-}
-
-#slideshow-img { 
-    max-width: 100%; 
-    max-height: 100%; 
-    object-fit: contain; 
-}
-
-/* Если экран широкий (планшет/ПК), ставим картинки в ряд */
-@media (min-width: 600px) {
-    .options { flex-direction: row; }
-    h1 { font-size: 3rem; }
-}
-
+    position: absolute;
