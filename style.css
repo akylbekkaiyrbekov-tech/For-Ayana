@@ -1,63 +1,88 @@
-/* Общие настройки фона и шрифта */
+/* Базовые настройки */
 body {
-    background-color: #fdf6d3; /* Тот самый кремовый фон */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fdf6d3;
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    margin: 0;
-    padding: 10px;
-    box-sizing: border-box;
-    overflow-x: hidden; /* Чтобы не было горизонтальной прокрутки */
+    overflow-x: hidden;
 }
 
-/* Контейнер игры */
-#game-container { 
-    width: 100%;
-    max-width: 600px;
-    text-align: center; 
+#game-container {
+    width: 95%;
+    max-width: 500px;
+    text-align: center;
+    display: flex;
+    flex-direction: column; /* Текст будет СВЕРХУ картинок */
+    align-items: center;
 }
 
-h1 { 
-    font-size: 1.8rem; 
-    margin-bottom: 30px; 
-    color: #333;
-}
-
-/* Ряд с картинками — теперь всегда горизонтальный */
-.options { 
-    display: flex; 
-    flex-direction: row; /* Картинки в одну линию */
-    justify-content: center; 
-    gap: 15px; /* Расстояние между ними */
+h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
     width: 100%;
 }
 
-/* Карточка с фото */
+/* Блок с двумя картинками (Вопросы) */
+.options {
+    display: flex;
+    flex-direction: row; /* Картинки в ряд */
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+}
+
 .card {
-    cursor: pointer;
+    flex: 1;
+    max-width: 48%;
     background: white;
-    padding: 8px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    flex: 1; /* Растягиваются поровну */
-    max-width: 45%; /* Чтобы точно влезли две в ряд */
-    position: relative; /* Нужно для центровки иконки внутри */
-    transition: transform 0.2s;
-}
-
-.card:active {
-    transform: scale(0.95); /* Эффект нажатия пальцем */
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    position: relative;
 }
 
 .card img {
-    width: 100%; 
+    width: 100%;
     height: auto;
-    border-radius: 8px;
+    border-radius: 5px;
     display: block;
 }
 
-/* Иконки (крестики/галочки) прямо поверх картинок */
+/* Иконки крестиков поверх фото */
 .status-icon {
     position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 40px;
+    pointer-events: none;
+    z-index: 5;
+}
+
+/* ФИНАЛЬНЫЙ СЛАЙД (на весь экран) */
+#slideshow-container {
+    position: fixed; /* Замирает поверх всего */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: black;
+    display: flex; /* Чтобы фото было по центру */
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Самый высокий слой */
+}
+
+#slideshow-img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Картинка не растягивается */
+}
+
+.hidden {
+    display: none !important;
+}
