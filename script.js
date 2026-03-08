@@ -82,11 +82,12 @@ function startSlideshow() {
         if (i < finalImages.length) {
             slideImg.src = finalImages[i];
         } else {
-            clearInterval(interval); // Останавливаем после 3-й фотки
+            i = (i + 1) % finalImages.length; // Останавливаем после 3-й фотки
             // Если хочешь зациклить — убери clearInterval и оставь i = (i + 1) % finalImages.length;
         }
     }, 1000); // Смена фото каждые 2.5 секунды
 }
+
 
 
 
